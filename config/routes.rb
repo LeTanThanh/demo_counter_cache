@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'phases/index'
   get 'projects/index'
   # Has many association
   root "categories#index"
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
 
   # Multi-level counter-cache
   resources :projects, only: :index
+  resources :phases, only: :index
 end

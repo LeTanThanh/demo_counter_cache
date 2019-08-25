@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Phases</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Tasks count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @phases.each do |phase| %>
+        <tr>
+          <td><%= phase.id %></td>
+          <td><%= phase.name %></td>
+          <td><%= phase.description %></td>
+          <td><%= phase.tasks.size %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
