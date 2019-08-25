@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all.includes(:phases)
+    @projects = Project.all
   end
 end
