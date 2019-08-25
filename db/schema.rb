@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_092845) do
+ActiveRecord::Schema.define(version: 2019_08_25_052952) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2019_08_24_092845) do
     t.integer "users_count", default: 0, null: false
   end
 
+  create_table "phases", force: :cascade do |t|
+    t.integer "project_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_phases_on_project_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "category_id"
     t.string "name"
@@ -44,6 +53,22 @@ ActiveRecord::Schema.define(version: 2019_08_24_092845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "phase_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phase_id"], name: "index_tasks_on_phase_id"
   end
 
   create_table "users", force: :cascade do |t|
