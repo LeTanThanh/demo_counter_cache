@@ -1,5 +1,5 @@
 class PhasesController < ApplicationController
   def index
-    @phases = Phase.all.includes(:tasks)
+    @phases = Phase.all
   end
 end
